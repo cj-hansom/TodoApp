@@ -1,97 +1,143 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# TodoApp
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![React Native](https://img.shields.io/badge/React%20Native-0.81-blue)
+![React](https://img.shields.io/badge/React-19.1.0-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-## Step 1: Start Metro
+A simple, fully functional **Todo application** built with **React Native**.  
+Supports adding, updating, deleting, and toggling tasks, with **dark/light theme support**.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Features
 
-```sh
-# Using npm
-npm start
+- Add, update, delete, and toggle task completion
+- Persistent storage using **AsyncStorage**
+- Dark mode and light mode toggle
+- Smooth animations with `LayoutAnimation`
+- React Navigation stack for seamless screen transitions
+- Fully tested with **Jest** and **React Testing Library**
 
-# OR using Yarn
-yarn start
+---
+
+## Screenshots
+
+### Task List Screen
+![Task List](assets/screenshots/task-list.png)
+
+### Add Task Screen
+![Add Task](assets/screenshots/add-task.png)
+
+### Dark Mode
+![Dark Mode](assets/screenshots/dark-mode.png)
+
+### Task Completed
+![Task Completed](assets/screenshots/task-completed.png)
+
+> Add more screenshots as needed in the `assets/screenshots/` folder and reference them here.
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/cj-hansom/TodoApp.git
+cd TodoApp
+````
+
+2. Install dependencies:
+
+```bash
+npm install
 ```
 
-## Step 2: Build and run your app
+3. Run the app:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+* **Android**:
 
-### Android
-
-```sh
-# Using npm
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+* **iOS** (Mac only):
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## Testing
 
-## Step 3: Modify your app
+This project uses **Jest** and **React Testing Library** for unit and component tests.
 
-Now that you have successfully run the app, let's make changes!
+Run tests with:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```bash
+npm test
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+All test suites should pass.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## Usage
 
-You've successfully run and modified your React Native App. :partying_face:
+* Launch the app
+* Use **Add Task** to create a new task
+* Tap a task to toggle its completion
+* Long press a task to edit or update
+* Use **Delete** to remove a task
+* Toggle dark/light mode using the button
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## Project Structure
 
-# Troubleshooting
+```
+TodoApp/
+│
+├─ src/
+│   ├─ components/     # TaskItem and UI components
+│   ├─ context/        # TaskProvider and ThemeContext
+│   ├─ screens/        # TaskListScreen, AddTaskScreen
+│   └─ types/          # TypeScript types
+│
+├─ _tests_/            # Jest and Testing Library tests
+├─ assets/screenshots/ # App screenshots for README
+├─ App.tsx             # Main entry point
+├─ package.json
+└─ README.md
+```
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
+## Technologies
 
-To learn more about React Native, take a look at the following resources:
+* **React Native 0.81**
+* **React 19.1**
+* **TypeScript**
+* **AsyncStorage**
+* **React Navigation**
+* **Jest & React Testing Library**
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create a branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m "Add feature"`)
+4. Push to your branch (`git push origin feature-name`)
+5. Create a Pull Request
+
+---
+
+## License
+
+MIT License © 2025
+
+
