@@ -1,45 +1,46 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React, { useContext } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar, Text, View } from 'react-native';
+import TaskListScreen from './src/screens/TaskListScreen';
+import AddTaskScreen from './src/screens/AddTaskScreen';
+import { TaskProvider } from './src/context/TaskProvider';
+import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+export type RootStackParamList = {
+  TaskList: undefined;
+  AddTask: { taskToEdit?: any };
+};
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
+export default function App() {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <ThemeProvider>
+      <TaskProvider>
+        <AppWithNavigation />
+      </TaskProvider>
+    </ThemeProvider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+const AppWithNavigation = () => {
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle={theme.background === '#111' ? 'light-content' : 'dark-content'} />
+      <Stack.Navigator
+        initialRouteName="TaskList"
+        screenOptions={{
+          headerStyle: { backgroundColor: theme.background },
+          headerTintColor: theme.text,
+          headerTitleStyle: { fontWeight: '600' },
+        }}
+      >
+        <Stack.Screen name="TaskList" component={TaskListScreen} options={{ title: 'My Tasks' }} />
+        <Stack.Screen name="AddTask" component={AddTaskScreen} options={{ title: 'Add New Task' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
+};
